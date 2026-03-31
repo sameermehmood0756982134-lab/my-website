@@ -1,0 +1,118 @@
+body{
+    font-family:Arial;
+    margin:0;
+    padding:0;
+}
+header{
+    background:black;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+}
+nav a{
+    color:white;
+    margin:10px;
+    text-decoration:none;
+}
+.hero{
+    background:lightblue;
+    text-align:center;
+    padding:50px;
+}
+.about, .projects, .contact{
+    padding:30px;
+    text-align:center;
+}
+.projects .card{
+    margin:10px;
+    padding:20px;
+    display:inline-block;
+}
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:10px;
+}
+nav a:hover{
+    color:yellow;
+}
+.projects .card:hover{
+    background:lightgreen;
+    cursor:pointer;
+}
+nav a, .card{
+    transition:0.3s;
+}
+@media (max-width:600px){
+    header{
+        flex-direction:column;
+        text-align:center;
+}
+
+nav{
+    margin-top:10px;
+}
+.projects .card{
+    display:block;
+    width:80%;
+    margin:10px auto;
+}
+} 
+.hero{
+    background:linear-gradient(to right,blue,purple);
+    color:white;
+    text-align:center;
+    padding:60px;
+} 
+.projects .card{
+    padding:20px;
+    display:inline-block;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+   .projects .card{
+          transition:0.3s;
+   } 
+    .projects .card:hover{
+          transform:scale(1.1);
+    } 
+    .btn{
+        transition:0.3s;
+    }
+
+
+     .btn:hover{
+        transform:scale(1.1);
+     }
+    
+      .hero, .about, .projects, .contact{
+        opacity:0;
+        animation:fadeIn 1s forwards;
+      }
+
+
+      @keyframes fadeIn{
+        to{
+            opacity:1;
+        }
+      }
+      .hero{
+        animation-delay:0.2s;
+      }
+
+      .about{
+        animation-delay:0.6s;
+      }
+      .projects{
+        animation-delay:1s;
+      }
+      .contact{
+        animation-delay:1.4s;
+      }
+      .dark{
+        background-color:black;
+        color:white;
+      }
+  

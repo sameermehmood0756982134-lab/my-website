@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+
+
+      <header>
+           <h1>My Portfolio</h1>
+      <nav>
+           <a href="#home">Home</a>
+           <a href="#about">About</a>
+           <a href="#projects">Projects</a>
+           <a href="#contact">Contact</a>
+    </nav>
+    </header>
+
+     <section id="home" class ="hero">
+    <h2>Hello, I'm Sameer - Web Developer</h2>
+    <p>I build websites using HTML, CSS & JavaScript</p>
+    <button class="btn">Hire Me</button>
+    <button onclick="showMessage()">Click Me</button>
+    <p id="demo">Welcome to my website</p>
+    <button onclick="changeText()">ChangeText</button>
+    <button onclick="darkMode()">Dark Mode</button>
+    <p id="info">This is extra information</p>
+    <button onclick="toggleInfo()">Hide/Show</button>
+    <p><strong>Skills:</strong> HTML | CSS | JavaScript</p>
+    </section>
+    
+    
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Contact via form</p>
+
+        <form onsubmit="submitForm(event)">
+        <input type="text" id="name"placeholder="Your Name"required><br><br>
+        <input type="email" id="email"placeholder="Your Email"required><br><br>
+        <textarea id="message"placeholder="Your Message"required></textarea><br><br>
+        <button type="submit">Send Message</button>
+    </form>
+        <p id="formMsg"></p>
+        <button onclick="clearData()">Clear Data</button>
+    </section>
+        
+
+
+
+<section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I am learning web development and building cool websites.</p>
+    </section>
+
+
+
+<section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="card">Project 1</div>
+    <div class="card">Project 2</div>
+    <div class="card">Project 3</div>
+    <div class="card">
+        <h3>Todo App</h3>
+        <p>A simple task manager using Javascript</p>
+        <p>Built with javaScript</p>
+        </div>
+    <div class="card">
+        <h3>Calculator</h3>
+        <p>A web-based calculator using JavaScript</p>
+        <p>Performs basic math operation</p>
+    </div>
+    <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>This website built using HTML, CSS & JavaScript</p>
+    </div>
+    <div class="card">
+        <h3>Landing Page</h3>
+        <p>A Responsive landing page using HTML & CSS</p>
+        </div>
+</section>
+
+    
+
+<script>
+    function showMessage(){
+        alert("Hello Sameer!👋");
+    }
+    function changeText(){
+        document.getElementById("demo").innerHTML="You clicked the button🎉!"
+    }
+    let dark=false;
+
+    function darkMode(){
+        document.body.classList.toggle("dark");
+    }
+
+    let visible=true;
+
+
+    function toggleInfo(){
+        if(visible){
+            document.getElementById("info").style.display="none";
+            visible=false;
+        } else{
+            document.getElementById("info").style.display="block";
+            visible=true;
+        }
+    }
+    function submitForm(event){
+        event.preventDefault(); //page reload stop
+
+
+        let name=document.getElementById("name").value;
+        let email=document.getElementById("email").value;
+        let message=document.getElementById("message").value;
+
+        
+        localStorage.setItem("name",name);
+        localStorage.setItem("email",email);
+        localStorage.setItem("message",message);
+
+
+        document.getElementById("formMsg").innerHTML=
+                "Thanks " + name +" ! Your message has been received 🎉";
+
+
+
+
+
+
+                console.log(name , email , message);
+    }
+    window.onload=function(){
+        let savedName=localStorage.getItem("name");
+        let savedEmail=localStorage.getItem("email");
+        let savedMessage=localStorage.getItem("message");
+
+
+        if(savedName){
+            document.getElementById("name").value=savedName;
+            document.getElementById("email").value=savedEmail;
+            document.getElementById("message").value=savedMessage;
+        }
+    }
+    function clearData(){
+        localStorage.clear();
+        location.reload();
+    }
+    </script>
+    
+
+
+<footer>
+    <p>© 2026 My Portfolio</p>
+</footer>
+
+</body>
+</html>
